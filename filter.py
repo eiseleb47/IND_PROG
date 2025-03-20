@@ -70,8 +70,8 @@ class XMLFilter:
             bool: True if observable, False otherwise
         """
         dec = float(self.get_text('C2'))
-        return dec >= self.observable_dec_threshold and not isnan(dec) and dec <= 90
-    
+        return  dec >= self.observable_dec_threshold and not isnan(dec) and dec <= 90
+
     def get_location_status(self):
         """
         Get a human-readable status of the event's observability.
@@ -81,7 +81,7 @@ class XMLFilter:
         """
         if self.is_observable():
             return 'The event should be observable.'
-        return 'The event is below the observable Declination.'
+        return 'The event is outside the observable Declination.'
     
     def get_event_data(self):
         """

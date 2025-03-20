@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from math import isnan
 
 class XMLFilter:
     """
@@ -69,7 +70,7 @@ class XMLFilter:
             bool: True if observable, False otherwise
         """
         dec = float(self.get_text('C2'))
-        return dec >= self.observable_dec_threshold
+        return dec >= self.observable_dec_threshold and not isnan(dec) and dec <= 90
     
     def get_location_status(self):
         """
